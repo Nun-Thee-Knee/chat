@@ -17,9 +17,6 @@ app.use(express.json())
 //routes
 app.use("/user", userRouter);
 
-app.get("/", (req, res)=>{
-    res.send("Hello from the server side");
-})
 
 app.listen(PORT, ()=>{
     console.log(`App is running on ${PORT}`);

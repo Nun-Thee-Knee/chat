@@ -13,7 +13,12 @@ router.post("/signup", async(req, res)=>{
         email: email,
         password: password
     })
-    res.send(user);
+    res.status(200).send(body)
+})
+
+router.post("/signin", async(req, res)=>{
+    const {email, password} = req.body;
+    res.send("Success")
 })
 
 module.exports = router
