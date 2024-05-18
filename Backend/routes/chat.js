@@ -23,7 +23,7 @@ router.post("/send", async (req, res) => {
         });
         res.json(chat);
     } catch (error) {
-        res.status(500).json({ error: 'Failed to create chat' });
+        res.status(500).json({ error: 'Failed to create chat'+error });
     }
 });
 

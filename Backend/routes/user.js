@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user")
+const {validateToken} = require("../services/authentication")
 
 router.get("/", (req, res)=>{
     res.send("You are in the router page")
@@ -15,7 +16,9 @@ router.post('/signup', async (req, res) => {
             password
         });
         await newUser.save();
-        res.status(200).send(newUser); // Send the created user object as a response
+        const token = await User.matchPasswordAndGenerateToken(email, password)
+        const payload = validateToken(token)
+        res.status(200).send(payload);
     } catch (err) {
         res.status(500).send({ error: err.message });
     }
@@ -24,7 +27,8 @@ router.post('/signup', async (req, res) => {
 router.post("/signin", async(req, res)=>{
     const {email, password} = req.body;
     const token = await User.matchPasswordAndGenerateToken(email, password);
-    res.send(token);
+    const payload = validateToken(token)
+    res.status(200).send(payload);
 })
 
 module.exports = router
