@@ -1,11 +1,10 @@
-import './App.css';
+import AuthForm from './components/AuthForm';
+import ChatPlace from './components/ChatPlace';
 
 function App() {
   return (
     <div className="App">
-      <h1 className="bg-pink-300 text-3xl font-bold underline">
-      Hello world!
-    </h1>
+      <ChatPlace/>
     </div>
   );
 }
