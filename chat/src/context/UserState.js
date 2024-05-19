@@ -13,7 +13,7 @@ const UserState = (props) => {
     useEffect(() => {
         const fetchChatData = async () => {
             try {
-                const response = await fetch("http://localhost:5000/chat");
+                const response = await fetch("https://chat-ew8z.onrender.com/chat");
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
