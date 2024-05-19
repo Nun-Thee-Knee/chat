@@ -6,7 +6,7 @@ const Chat = require("../models/chat");
 // GET route
 router.get("/", async (req, res) => {
     try {
-        const chats = await Chat.find({});
+        const chats = await Chat.find({}).sort({ createdAt: 1 });
         res.json(chats); 
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch chats' });
@@ -15,11 +15,12 @@ router.get("/", async (req, res) => {
 
 // POST route
 router.post("/send", async (req, res) => {
-    const { chatText, chatUser } = req.body;
+    const { chatText, chatUser, chatEmail } = req.body;
     try {
         const chat = await Chat.create({
             chatText: chatText,
-            chatUser: chatUser
+            chatUser: chatUser,
+            chatEmail: chatEmail
         });
         res.json(chat);
     } catch (error) {

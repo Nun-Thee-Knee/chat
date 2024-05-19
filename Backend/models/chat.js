@@ -6,6 +6,9 @@ const chatSchema = mongoose.Schema({
     },
     chatUser: {
         type: String
+    },
+    chatEmail: {
+        type: String
     }
 }, {timestamps:true})
 
