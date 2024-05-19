@@ -7,6 +7,8 @@ const userRouter = require("./routes/user")
 const chatRouter = require("./routes/chat")
 const cors = require('cors');
 
+require('dotenv').config();
+
 const app = express();
 const PORT = 5000;
 
@@ -14,7 +16,7 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
     cors: {
-        origin: "https://chat-pearl-seven-69.vercel.app",
+        origin: process.env.CLIENT_URL,
         methods: ["GET", "POST"]
     }
 });
@@ -34,7 +36,7 @@ io.on("connection", (socket) => {
 });
 
 
-mongoose.connect("mongodb+srv://jane6677doe:ovFtjXgYYIZcTali@chat.fk6q69a.mongodb.net/?retryWrites=true&w=majority&appName=chat")
+mongoose.connect(process.env.MONGODB_URL)
 .then((data)=>{console.log("Mongodb is connected")})
 .catch((err)=>{console.log(`Error faced while connection ${err}`)})
 
