@@ -39,17 +39,19 @@ const AuthForm = () => {
       body: JSON.stringify(data),
     });
     const userData = await response.json();
-    setUser({
-      userName: userData.userName,
-      email: userData.email
-    })
-    Cookies.set('userName', userData.userName);
-    Cookies.set('email', userData.email);
+    if(userData.error) alert("User credentials are invalid or User does not exist")
+    else{
+      setUser({
+        userName: userData.userName,
+        email: userData.email
+      })
+      Cookies.set('userName', userData.userName);
+      Cookies.set('email', userData.email);}
   };
 
   return (
     <form action="" onSubmit={handleSubmit}>
-      <div className="bg-fuchsia-800 flex justify-center items-center h-[100vh]">
+      <div className="bg-fuchsia-800 flex justify-center items-center h-[100vh] p-10">
         <div className="bg-fuchsia-400 h-auto w-auto p-10 rounded-xl drop-shadow-2xl">
           <div className="flex">
             <div
