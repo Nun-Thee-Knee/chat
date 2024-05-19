@@ -28,6 +28,7 @@ To get started with the Universal Chat App, follow the instructions below.
    npm install
    npm run dev
    ```
+   Add .env which includes <br>(i). MONGODB_URL=(Your connection string with MongoDb)<br>(ii).CLIENT_URL=(Your server on which Frontend or React is running)
 
 3. **Setup the Frontend:**
 
@@ -38,6 +39,7 @@ To get started with the Universal Chat App, follow the instructions below.
    npm install
    npm run start
    ```
+   Replace <b>https://chat-ew8z.onrender.com</b> from ./components/Demo.js, ./components/Demo.js, ./components/ChatPlace.js  and ./context/UserState.js with the link to the local server where your backend is running. (Mostly http://localhost:5000)
 
 ### Usage
 
