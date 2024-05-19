@@ -1,7 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import UserContext from '../context/UserContext';
+import Cookies from 'js-cookie';
 
 const ChatPlace = () => {
+
+  const context = useContext(UserContext);
+  const {setUser} = context;
   const [message, setMessage] = useState("");
+
+  const Logout = () => {
+    setUser({
+      userName: "",
+      email: ""
+    })
+    Cookies.remove('userName');
+    Cookies.remove('email');
+  }
 
   const handleInputChange = (e) => {
     setMessage(e.target.value);
@@ -35,7 +49,7 @@ const ChatPlace = () => {
           </div>
         </div>
         <form onSubmit={handleSubmit} className='flex items-center gap-2 justify-normal w-full'>
-          <button type="button" className='bg-fuchsia-950 hover:bg-fuchsia-800 text-white py-2 px-4 rounded-xl font-bold'>Logout</button>
+          <button onClick={Logout} type="button" className='bg-fuchsia-950 hover:bg-fuchsia-800 text-white py-2 px-4 rounded-xl font-bold'>Logout</button>
           <input
             onChange={handleInputChange}
             name="message"

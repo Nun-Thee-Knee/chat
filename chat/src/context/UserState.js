@@ -1,11 +1,15 @@
 import UserContext from "./UserContext";
 import React, {useState} from "react";
+import Cookies from "js-cookie";
 
 const UserState = (props) => {
-    const [value, setValue] = useState("This is from the context");
+    const [user, setUser] = useState({
+        userName: Cookies.get('userName'),
+        email: Cookies.get('email')
+    })
     return (
     <>
-    <UserContext.Provider value={{value, setValue}}>
+    <UserContext.Provider value={{user, setUser}}>
         {props.children}
     </UserContext.Provider>
     </>

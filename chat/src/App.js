@@ -1,7 +1,6 @@
 import React from 'react';
-import AuthForm from './components/AuthForm';
-import ChatPlace from './components/ChatPlace';
 import UserState from './context/UserState';
+import ChatApp from './components/ChatApp';
 
 
 
@@ -10,7 +9,7 @@ function App() {
     <React.StrictMode>
       <UserState>
     <div className="App">
-      <AuthForm/>
+      <ChatApp/>
     </div>
     </UserState>
     </React.StrictMode>

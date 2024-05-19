@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import UserContext from "../context/UserContext";
+import Cookies from "js-cookie";
 
 const AuthForm = () => {
   const context = useContext(UserContext);
-  const {value,setValue} = context
+  const {setUser} = context
   const [auth, setAuth] = useState("signup");
   const [credentials, setCredentials] = useState({
     userName: "",
@@ -38,7 +39,12 @@ const AuthForm = () => {
       body: JSON.stringify(data),
     });
     const userData = await response.json();
-    console.log(userData);
+    setUser({
+      userName: userData.userName,
+      email: userData.email
+    })
+    Cookies.set('userName', userData.userName);
+    Cookies.set('email', userData.email);
   };
 
   return (
