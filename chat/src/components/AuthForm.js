@@ -30,7 +30,7 @@ const AuthForm = () => {
       email: email,
       password: password,
     };
-    const url = `https://chat-ew8z.onrender.com/${auth}`;
+    const url = `https://chat-ew8z.onrender.com/user/${auth}`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
