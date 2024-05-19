@@ -28,7 +28,7 @@ const UserState = (props) => {
     }, []);
 
     return (
-        <UserContext.Provider value={{ user, setUser, chat }}>
+        <UserContext.Provider value={{ user, setUser, chat, setChat }}>
             {props.children}
         </UserContext.Provider>
     );
