@@ -3,7 +3,7 @@ import UserContext from "../context/UserContext";
 import Cookies from "js-cookie";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://chat-ew8z.onrender.com");
 
 const Demo = () => {
   const context = useContext(UserContext);

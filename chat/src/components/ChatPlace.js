@@ -3,7 +3,7 @@ import UserContext from "../context/UserContext";
 import Cookies from "js-cookie";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://chat-ew8z.onrender.com");
 
 const ChatPlace = () => {
   const context = useContext(UserContext);
@@ -41,7 +41,7 @@ const ChatPlace = () => {
         chatUser: user.userName,
         chatEmail: user.email,
       };
-      const url = `http://localhost:5000/chat/send`;
+      const url = `https://chat-ew8z.onrender.com/chat/send`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
