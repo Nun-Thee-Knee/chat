@@ -14,7 +14,7 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
     cors: {
-        origin: "https://chat-pearl-seven-69.vercel.app/chat",
+        origin: "https://chat-pearl-seven-69.vercel.app",
         methods: ["GET", "POST"]
     }
 });
