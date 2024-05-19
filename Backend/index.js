@@ -14,7 +14,7 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://chat-pearl-seven-69.vercel.app",
         methods: ["GET", "POST"]
     }
 });
@@ -34,7 +34,7 @@ io.on("connection", (socket) => {
 });
 
 
-mongoose.connect("mongodb://localhost:27017/chat")
+mongoose.connect("mongodb+srv://jane6677doe:ovFtjXgYYIZcTali@chat.fk6q69a.mongodb.net/?retryWrites=true&w=majority&appName=chat")
 .then((data)=>{console.log("Mongodb is connected")})
 .catch((err)=>{console.log(`Error faced while connection ${err}`)})
 
